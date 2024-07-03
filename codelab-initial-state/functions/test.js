@@ -17,7 +17,7 @@ const path = require("path");
 const TEST_FIREBASE_PROJECT_ID = "test-firestore-rules-project";
 
 // TODO: Change this to your real Firebase Project ID
-const REAL_FIREBASE_PROJECT_ID = "changeme";
+const REAL_FIREBASE_PROJECT_ID = "fir-backend-fde0b";
 
 const firebase = require("@firebase/rules-unit-testing");
 
@@ -79,9 +79,9 @@ describe("shopping carts", () => {
     projectId: TEST_FIREBASE_PROJECT_ID
   }).firestore();
 
-  after(async () => {
-    await resetData(admin, TEST_FIREBASE_PROJECT_ID);
-  });
+  // after(async () => {
+  //   await resetData(admin, TEST_FIREBASE_PROJECT_ID);
+  // });
 
   it('can be created and updated by the cart owner', async () => {
     // Alice can create her own cart
@@ -152,9 +152,9 @@ describe("shopping cart items", async () => {
     }
   });
 
-  after(async () => {
-    await resetData(admin, TEST_FIREBASE_PROJECT_ID);
-  });
+  // after(async () => {
+  //   await resetData(admin, TEST_FIREBASE_PROJECT_ID);
+  // });
 
   it("can be read only by the cart owner", async () => {
     // Alice can read items in her own cart
@@ -179,14 +179,14 @@ describe("shopping cart items", async () => {
   });
 });
 
-describe.skip("adding an item to the cart recalculates the cart total. ", () => {
+describe("adding an item to the cart recalculates the cart total. ", () => {
   const admin = firebase.initializeAdminApp({ 
     projectId: REAL_FIREBASE_PROJECT_ID 
   }).firestore();
 
-  after(async () => {
-    await resetData(admin, REAL_FIREBASE_PROJECT_ID);
-  });
+  // after(async () => {
+  //   await resetData(admin, REAL_FIREBASE_PROJECT_ID);
+  // });
 
   it("should sum the cost of their items", async () => {
     if (REAL_FIREBASE_PROJECT_ID === "changeme") {
